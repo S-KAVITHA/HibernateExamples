@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+          "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+  
+  <hibernate-mapping>  
+  <class name="com.javatpoint.mypackage.EmpInherit" table="EmpTPC">  
+  <id name="id">  
+    <generator class="increment"></generator>  
+  </id>  
+           
+  <property name="name"></property>  
+            
+	  <union-subclass name="com.javatpoint.mypackage.Regular_Employee" table="EmpTPC_RE">  
+		  <property name="salary"></property>  
+		  <property name="bonus"></property>  
+	  </union-subclass>  
+            
+	  <union-subclass name="com.javatpoint.mypackage.Contract_Employee" table="EmpTPC_CE">  
+		  <property name="pay_per_hour"></property>  
+		  <property name="contract_duration"></property>  
+	  </union-subclass>           
+  </class>  
+            
+  </hibernate-mapping> 
